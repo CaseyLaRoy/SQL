@@ -1,0 +1,20 @@
+CREATE TABLE womens_clothing_store (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, aisle INTEGER, price INTEGER, profit_margin INTEGER);
+
+INSERT INTO womens_clothing_store VALUES (1, "tank tops", 79, 1, 10, 5);
+INSERT INTO womens_clothing_store VALUES (2, "tshirts", 85, 1, 20, 10);
+INSERT INTO womens_clothing_store VALUES (3, "blouses", 98, 2, 25, 12.50);
+INSERT INTO womens_clothing_store VALUES (4, "sweaters", 38, 2, 30, 15);
+INSERT INTO womens_clothing_store VALUES (5, "dresses", 129, 3, 30, 15);
+INSERT INTO womens_clothing_store VALUES (6, "shorts", 96, 4, 15, 7.50);
+INSERT INTO womens_clothing_store VALUES (7, "pants", 52, 4, 20, 10);
+INSERT INTO womens_clothing_store VALUES (8, "skirts", 114, 5, 15, 7.50);
+INSERT INTO womens_clothing_store VALUES (9, "lounge wear", 103, 6, 30, 15);
+INSERT INTO womens_clothing_store VALUES (10, "lingerie", 84, 6, 35, 17.50);
+INSERT INTO womens_clothing_store VALUES (11, "bras", 79, 7, 20, 10);
+INSERT INTO womens_clothing_store VALUES (12, "underwear", 106, 7, 5, 2.50);
+INSERT INTO womens_clothing_store VALUES (13, "socks", 74, 7, 5, 2.50);
+INSERT INTO womens_clothing_store VALUES (14, "shapewear", 59, 8, 30, 15);
+INSERT INTO womens_clothing_store VALUES (15, "bathing suits", 137, 8, 30, 15);
+
+SELECT * FROM womens_clothing_store ORDER BY price;
+SELECT aisle, sum(profit * quantity) FROM womens_clothing_store GROUP BY aisle;
