@@ -1,0 +1,70 @@
+CREATE TABLE celebs
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT,
+    last_name TEXT);
+
+INSERT INTO celebs (first_name, last_name) VALUES ("charlie", "puth");
+INSERT INTO celebs (first_name, last_name) VALUES ("taylor", "swift");
+INSERT INTO celebs (first_name, last_name) VALUES ("ed", "sheeran");
+INSERT INTO celebs (first_name, last_name) VALUES ("shawn", "mendes");
+INSERT INTO celebs (first_name, last_name) VALUES ("ariana", "grande");
+INSERT INTO celebs (first_name, last_name) VALUES ("harry", "styles");
+INSERT INTO celebs (first_name, last_name) VALUES ("billie", "eilish");
+
+
+CREATE TABLE birthplaces
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    celeb_id INTEGER,
+    state TEXT);
+
+INSERT INTO birthplaces (celeb_id, state) VALUES (1, "NJ");
+INSERT INTO birthplaces (celeb_id, state) VALUES (2, "PA");
+INSERT INTO birthplaces (celeb_id, state) VALUES (3, "UK");
+INSERT INTO birthplaces (celeb_id, state) VALUES (4, "ON");
+INSERT INTO birthplaces (celeb_id, state) VALUES (5, "FL");
+INSERT INTO birthplaces (celeb_id, state) VALUES (6, "UK");
+INSERT INTO birthplaces (celeb_id, state) VALUES (7, "CA");
+
+
+CREATE TABLE top_songs
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    celeb_id INTEGER,
+    song TEXT);
+
+INSERT INTO top_songs (celeb_id, song) VALUES (6, "watermelon_sugar");
+INSERT INTO top_songs (celeb_id, song) VALUES (7, "when_we_fall_asleep");
+INSERT INTO top_songs (celeb_id, song) VALUES (7, "where_do_we_go");
+INSERT INTO top_songs (celeb_id, song) VALUES (5, "thank_you_next");
+INSERT INTO top_songs (celeb_id, song) VALUES (5, "7 rings");
+INSERT INTO top_songs (celeb_id, song) VALUES (5, "stuck_with_you");
+INSERT INTO top_songs (celeb_id, song) VALUES (5, "rain_on_me");
+INSERT INTO top_songs (celeb_id, song) VALUES (5, "positions");
+INSERT INTO top_songs (celeb_id, song) VALUES (4, "stitches");
+INSERT INTO top_songs (celeb_id, song) VALUES (4, "treat_you_better");
+INSERT INTO top_songs (celeb_id, song) VALUES (4, "senorita");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "bad_habits");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "shivers");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "merry_christmas");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "i_dont_care");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "beautiful_people");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "take_me_back_to_london");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "shape_of_you");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "perfect_duet");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "thinking_out_loud");
+INSERT INTO top_songs (celeb_id, song) VALUES (3, "sing");
+INSERT INTO top_songs (celeb_id, song) VALUES (2, "we_are_never_getting_back_together");
+INSERT INTO top_songs (celeb_id, song) VALUES (2, "bad_blood");
+INSERT INTO top_songs (celeb_id, song) VALUES (2, "shake_it_off");
+INSERT INTO top_songs (celeb_id, song) VALUES (2, "blank_space");
+INSERT INTO top_songs (celeb_id, song) VALUES (2, "look_what_you_made_me_do");
+INSERT INTO top_songs (celeb_id, song) VALUES (2, "cardigan");
+INSERT INTO top_songs (celeb_id, song) VALUES (2, "willow");
+INSERT INTO top_songs (celeb_id, song) VALUES (2, "all_too_well");
+
+
+SELECT celebs.first_name, celebs.last_name, birthplaces.state FROM celebs, birthplaces WHERE celebs.id = birthplaces.celeb_id;
+
+SELECT celebs.first_name, celebs.last_name, top_songs.song
+    FROM celebs
+    LEFT OUTER JOIN top_songs
+    ON celebs.id = top_songs.celeb_id;
