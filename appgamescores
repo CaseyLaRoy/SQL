@@ -1,0 +1,17 @@
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT);
+    
+CREATE TABLE scores (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    date TEXT,
+    score INTEGER);
+    
+INSERT INTO scores (user_id, date, score) VALUES (1, "2020-4-4", 300);
+INSERT INTO scores (user_id, date, score) VALUES (1, "2020-4-5", 500);
+INSERT INTO scores (user_id, date, score) VALUES (2, "2020-4-6", 700);
+
+UPDATE scores SET score = 800 WHERE date = "2020-4-5";
+
+DELETE FROM scores WHERE date = "2020-4-4";
